@@ -1,1 +1,2 @@
 /AWS/EC2/.terraform/*
+/AWS/S3/.terraform/*
