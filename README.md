@@ -15,11 +15,15 @@ Terraform templates for multipe providers including AWS,GCP and others (Will kee
         * in security group
         * public and private instance with private connected to NAT
         * elastic IP
+- [ ] EC2 instance already configured (eg Docker installed ) //using provisioner
+- [ ] Use output to view the ip of instance created
+- [ ] use maps to create seperate EC2 instances with seperate Ami id's in different regions
 - [ ] Load Balanced Security groups
 - [ ] Create user and groups
 - [ ] Create S3 Bucket
 - [ ] Create S3 website
-
+- [ ] Create Cloudformation stack
+- [ ] Create lambda function
 
 
 ## Providers to look at:
