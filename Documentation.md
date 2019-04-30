@@ -168,7 +168,52 @@ A module is a **container** for multiple resources that are used together
 
 // Not quite having handson with modules yet. Will add more once I get to know how to really use it 
 
+
+A complete example of a module following the standard structure is shown below. This example includes all optional elements and is therefore the most complex a module can become:
+
+```
+$ tree complete-module/
+.
+├── README.md
+├── main.tf
+├── variables.tf
+├── outputs.tf
+├── ...
+├── modules/
+│   ├── nestedA/
+│   │   ├── README.md
+│   │   ├── variables.tf
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   ├── nestedB/
+│   ├── .../
+├── examples/
+│   ├── exampleA/
+│   │   ├── main.tf
+│   ├── exampleB/
+│   ├── .../
+```
+
 ### Issues that can be faced
 
 > https://github.com/hashicorp/terraform/issues/9712
+
+
+# References:
+
+> Ofcourse official documentation : https://www.terraform.io/docs/configuration/index.html
+
+- https://medium.com/@mitesh_shamra/infrastructure-as-a-code-with-terraform-e7021bf28d7d
+
+- https://medium.com/@mitesh_shamra/state-management-with-terraform-9f13497e54cf
+
+- https://medium.com/@mitesh_shamra/manage-aws-vpc-with-terraform-d477d0b5c9c5
+
+- https://blog.gruntwork.io/how-to-create-reusable-infrastructure-with-terraform-modules-25526d65f73d
+
+- https://www.linode.com/docs/applications/configuration-management/create-terraform-module/
+
+- https://www.nearform.com/blog/writing-reusable-terraform-modules/
+
+
 

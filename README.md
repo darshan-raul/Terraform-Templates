@@ -7,7 +7,8 @@ Terraform templates for multipe providers including AWS,GCP and others (Will kee
 ## AWS
 - [x] Create a variables.tfvars file to extract variables from
 - [x] Include defaults in the variables eg instance_type,autaoscale no etc
-- [ ] Give tags to resources
+- [x] Give tags to resources
+- [ ] Used modules and created a module tree structure // refer the link to documentation here
 
 - [ ] VPC with cidr
 - [ ] public and private subnets in it with cidr
