@@ -26,6 +26,12 @@ Terraform templates for multipe providers including AWS,GCP and others (Will kee
 - [ ] Load Balanced Security groups
 - [ ] Create user and groups
 - [x] Create S3 Bucket
+- [ ] S3
+    - [ ] Enable Default Server Side Encryption
+    - [ ] Enable versioning
+    - [ ] create lifecyle rule
+    - [ ] enable logging
+    - [ ] Create S3 static website
 - [ ] Create S3 website
 - [ ] Create Cloudformation stack
 - [ ] Create lambda function
