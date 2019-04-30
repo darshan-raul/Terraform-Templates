@@ -10,6 +10,11 @@
  
 - A module is a collection of .tf or .tf.json files kept together in a directory. The root module is built from the configuration files in the current working directory when Terraform is run, and this module may reference child modules in other directories, which can in turn reference other modules, etc.
 
+- CLI cheatsheet:
+
+> https://github.com/scraly/terraform-cheat-sheet/blob/master/terraform-cheat-sheet.pdf
+
+
 ### Blocks 
  are containers for other content and usually represent the configuration of some kind of object, like a resource. Blocks have a block type, can have zero or more labels, and have a body that contains any number of arguments and nested blocks. Most of Terraform's features are controlled by top-level blocks in a configuration file.
 
@@ -152,3 +157,13 @@ locals {
 
 > Local values can be helpful to avoid repeating the same values or expressions multiple times in a configuration, but if overused they can also make a configuration hard to read by future maintainers by hiding the actual values used.
 
+
+# Modules
+
+A module is a **container** for multiple resources that are used together
+
+- Every Terraform configuration has **at least one module, known as its root module**, which consists of the resources defined in the .tf files in the main working directory.
+
+- A module can call other modules, which lets you include the child module's resources into the configuration in a concise way. Modules can also be called multiple times, either within the same configuration or in separate configurations, allowing resource configurations to be packaged and re-used.
+
+// Not quite having handson with modules yet. Will add more once I get to know how to really use it 
