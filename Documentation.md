@@ -33,3 +33,62 @@ A resource block declares a resource of a given type ("aws_instance") with a giv
 > The name is used to refer to this resource from elsewhere in the same Terraform module, but has no significance outside of the scope of a module.
 
 > :+1: Resource names must start with a letter or underscore, and may contain only letters, digits, underscores, and dashes.
+
+### Meta-Arguments
+
+Terraform CLI defines the following meta-arguments, which can be used with any resource type to change the behavior of resources:
+
+- **depends_on**, for specifying hidden dependencies
+- **count**, for creating multiple resource instances
+- **provider**, for selecting a non-default provider configuration
+- **lifecycle**, for lifecycle customizations
+- **provisioner and connection**, for taking extra actions after resource creation
+
+
+
+### Operation Timeouts
+
+Some resource types provide a special timeouts nested block argument that allows you to customize how long certain operations are allowed to take before being considered to have failed. 
+
+Each of these arguments takes a string representation of a duration, such as "60m" for 60 minutes, "10s" for ten seconds, or "2h" for two hours.
+
+```
+resource "aws_db_instance" "example" {
+  # ...
+
+  timeouts {
+    create = "60m"
+    delete = "2h"
+  }
+}
+```
+
+## Input Variables
+
+Input variables serve as parameters for a Terraform module, allowing aspects of the module to be customized without altering the module's own source code, and allowing modules to be shared between different configurations.
+
+```
+variable "image_id" {
+  type = string
+  description = "The id of the machine image (AMI) to use for the server."
+}
+
+variable "availability_zone_names" {
+  type    = list(string)
+  default = ["us-west-1a"]
+}
+```
+
+> The label after the variable keyword is a name for the variable, which must be unique among all variables in the same module. 
+
+ ### Assigning Values to Root Module Variables
+
+ - **Variables on the Command Line**
+
+To specify individual modules on the command line, use the -var option when running the terraform plan and terraform apply commands:
+
+```
+terraform apply -var="image_id=ami-abc123"
+terraform apply -var='image_id_list=["ami-abc123","ami-def456"]'
+terraform apply -var='image_id_map={"us-east-1":"ami-abc123","us-east-2":"ami-def456"}'
+```
