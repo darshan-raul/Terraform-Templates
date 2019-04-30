@@ -1,11 +1,18 @@
 
-variable "bucket_name" {
- type    = "string"
- default = "dfdfdfdfdfdgffgf"
- description = " This is the name of the bucket to be created"
+provider "aws" {
+ region = "eu-west-1"
+
 }
 
-resource "aws_s3_bucket" "b" {
+# you have to DECLARE the variable here 
+
+variable "bucket_name" { 
+  type = "string" 
+  description = "This is the name given to the bucket" 
+  default = "" }
+
+
+resource "aws_s3_bucket" "bucket" {
   bucket = "${var.bucket_name}"
   acl    = "private"
 

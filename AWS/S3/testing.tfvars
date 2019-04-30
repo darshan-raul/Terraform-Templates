@@ -1,6 +1,3 @@
-
-variable "bucket_name" {
- type    = "string"
- default = "dfdfdfdfdfdf"
- description = " This is the name of the bucket to be created"
-}
+ # you have to SET the variable's here
+ 
+ "bucket_name" = "dfdfdfdfdfdgffgf"

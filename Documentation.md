@@ -167,3 +167,8 @@ A module is a **container** for multiple resources that are used together
 - A module can call other modules, which lets you include the child module's resources into the configuration in a concise way. Modules can also be called multiple times, either within the same configuration or in separate configurations, allowing resource configurations to be packaged and re-used.
 
 // Not quite having handson with modules yet. Will add more once I get to know how to really use it 
+
+### Issues that can be faced
+
+> https://github.com/hashicorp/terraform/issues/9712
+
