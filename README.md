@@ -32,6 +32,10 @@ Terraform templates for multipe providers including AWS,GCP and others (Will kee
     - [ ] create lifecyle rule
     - [ ] enable logging
     - [ ] Create S3 static website
+- [ ] IAM
+    - [x] Create IAM user with a policy 
+    - [x] Create access key attached to created user
+   
 - [ ] Create S3 website
 - [ ] Create Cloudformation stack
 - [ ] Create lambda function
