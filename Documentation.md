@@ -92,3 +92,63 @@ terraform apply -var="image_id=ami-abc123"
 terraform apply -var='image_id_list=["ami-abc123","ami-def456"]'
 terraform apply -var='image_id_map={"us-east-1":"ami-abc123","us-east-2":"ami-def456"}'
 ```
+
+### Variable Definitions (.tfvars) Files
+
+To set lots of variables, it is more convenient to specify their values in a variable definitions file (with a filename ending in either .tfvars or .tfvars.json) and then specify that file on the command line with -var-file:
+
+> terraform apply -var-file="testing.tfvars"
+
+
+A variable definitions file uses the same basic syntax as Terraform language files, but consists only of variable name assignments:
+
+```
+image_id = "ami-abc123"
+availability_zone_names = [
+  "us-east-1a",
+  "us-west-1c",
+]
+```
+
+
+**Terraform loads variables in the following order, with later sources taking precedence over earlier ones:**
+
+- Environment variables
+- The terraform.tfvars file, if present.
+- The terraform.tfvars.json file, if present.
+- Any *.auto.tfvars or *.auto.tfvars.json files, processed in lexical order of their filenames.
+- Any -var and -var-file options on the command line, in the order they are provided. (This includes variables set by a Terraform Enterprise workspace.)
+
+
+
+## Output Values
+
+Output values are like the return values of a Terraform module
+
+```
+output "instance_ip_addr" {
+  value       = aws_instance.server.private_ip
+  description = "The private IP address of the main server instance."
+  
+  depends_on = [
+    # Security group rule must be created before this IP address could
+    # actually be used, otherwise the services will be unreachable.
+    aws_security_group_rule.local_access,
+  ]
+}
+```
+
+
+## Local Values
+
+A local value assigns a name to an expression, allowing it to be used multiple times within a module without repeating it
+
+```
+locals {
+  service_name = "forum"
+  owner        = "Community Team"
+}
+```
+
+> Local values can be helpful to avoid repeating the same values or expressions multiple times in a configuration, but if overused they can also make a configuration hard to read by future maintainers by hiding the actual values used.
+
