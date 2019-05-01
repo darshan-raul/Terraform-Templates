@@ -31,6 +31,8 @@ EOF
 }
 */
 
+
+
 resource "aws_iam_group_membership" "team" {
   name = "tf-testing-group-membership"
 
@@ -42,14 +44,15 @@ resource "aws_iam_group_membership" "team" {
   group = "${aws_iam_group.group.name}"
 }
 
-resource "aws_iam_group" "group" {
+############ Creating the group here 
+resource "aws_iam_group" "testgroup" {
   name = "test-group"
 }
-
+############ Creating first user
 resource "aws_iam_user" "user_one" {
   name = "test-user"
 }
-
+############ Creating second user
 resource "aws_iam_user" "user_two" {
   name = "test-user-two"
 }
