@@ -40,7 +40,15 @@ Terraform templates for multipe providers including AWS,GCP and others (Will kee
 - [ ] Create Cloudformation stack
 - [ ] Create lambda function
 
-
+- [ ] Project:
+	- [ ] Create seperate modules for each service
+	- [ ] Create a VPC with specific CIDR
+	- [ ] Create Internet gateway for the VPC
+	- [ ] Create two subnets public and private 
+	- [ ] Create NAT gateway in the public subnet so that intances in the private subnet can access the internet
+	
+	- [ ] Create a Ec2 instance which will be provisioned with docker installed on it
+	- [ ] 
 ## Providers to look at:
 
 - Azure
